@@ -37,7 +37,7 @@ def bubble_sort(array):
     return array
 
 
-sorted_array = bubble_sort(unsorted_array.copy())
+sorted_array = bubble_sort(unsorted_array)
 print("\nsorted:", sorted_array)
 
 """
