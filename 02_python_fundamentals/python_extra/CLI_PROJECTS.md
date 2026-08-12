@@ -6,7 +6,7 @@ In diesen Projekten wendest du alles bisher Gelernte an, um drei kleine, aber vo
 
 ## `sys.argv` — Eingaben über das Terminal entgegennehmen
 
-Bisher hast du `input()` kennengelernt, um Daten vom Benutzer abzufragen, während das Programm läuft. `sys.argv` funktioniert etwas anders — es ermöglicht dir, Daten direkt bei der Ausführung des Skripts über das Terminal zu übergeben.
+`sys.argv` funktioniert ermöglicht es dir, Daten direkt bei der Ausführung des Skripts über das Terminal zu übergeben.
 
 ```python
 import sys
@@ -156,3 +156,31 @@ o → r
 1. Erstelle für jedes Projekt eine neue `.py`-Datei.
 2. Beginne mit dem Setup für `sys.argv` und nutze einen `print`-Befehl, um zu überprüfen, ob deine Eingaben korrekt im Skript ankommen.
 3. Programmiere und teste immer nur eine Funktion auf einmal, bevor du am Ende alles zusammenfügst.
+
+---
+
+## Exkurs: Interaktive Eingaben mit `input()`
+
+In den obigen Projekten fokussieren wir uns auf `sys.argv`, um Daten direkt beim Startbefehl zu übergeben. Das nennt man **Kommandozeilenparameter**.
+
+Theoretisch könntest du Eingaben aber auch interaktiv abfragen, **während** das Programm bereits läuft. Dafür nutzt Python die integrierte Funktion `input()`.
+
+So funktioniert es:
+
+```python
+# Das Programm pausiert hier und wartet auf die Benutzereingabe
+name = input("Bitte gib deinen Namen ein: ")
+print(f"Hallo, {name}!")
+```
+
+Wenn du dieses Skript ausführst (`python script.py`), passiert Folgendes:
+
+1. Das Programm startet.
+2. Es gibt den Text `"Bitte gib deinen Namen ein: "` auf der Konsole aus.
+3. Es **pausiert**, bis der Nutzer etwas eintippt und die *Enter*-Taste drückt.
+4. Die Eingabe wird (immer als String!) in der Variablen `name` gespeichert und das Programm läuft weiter.
+
+**Wann nutzt man was?**
+
+* **`sys.argv`**: Perfekt für Skripte, die automatisiert oder von anderen Programmen aufgerufen werden sollen. Man übergibt die Daten in einem Rutsch und das Programm rattert durch.
+* **`input()`**: Perfekt für interaktive Programme, Text-Adventures oder Menüs, bei denen der Benutzer Schritt für Schritt durch einen Prozess geführt wird.
