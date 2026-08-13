@@ -25,14 +25,24 @@ print("original:", unsorted_array)
 
 
 def selection_sort(array):
+    """Sortiert ein Array in-place aufsteigend mit Selection Sort."""
     n = len(array)
+
+    # i verschiebt schrittweise die Grenze zwischen dem sortierten (links)
+    # und dem unsortierten Teil (rechts)
     for i in range(n):
-        min_index = i
+        min_index = i  # Annahme: Das erste unsortierte Element ist das kleinste
+
+        # Durchsuche ausschließlich den restlichen unsortierten Bereich (ab i + 1)
         for j in range(i + 1, n):
             if array[j] < array[min_index]:
-                min_index = j
+                min_index = j  # Neues Minimum gefunden -> Index merken
+
+        # Optimierung: Nur tauschen, wenn das Minimum nicht ohnehin schon
+        # an der richtigen Position (i) steht
         if min_index != i:
             array[i], array[min_index] = array[min_index], array[i]
+
     return array
 
 

@@ -25,15 +25,25 @@ print("original:", unsorted_array)
 
 
 def bubble_sort(array):
+    """Sortiert ein Array in-place aufsteigend mit Bubble Sort."""
     n = len(array)
+
     for i in range(n):
-        swapped = False
+        swapped = False  # Optimierung: Prüft, ob im aktuellen Durchlauf getauscht wurde
+
+        # Innere Schleife: n-i-1, da die letzten i Elemente bereits fertig sortiert am Ende stehen
         for j in range(0, n - i - 1):
+
+            # Benachbarte Elemente vergleichen
             if array[j] > array[j + 1]:
+                # Pythonic Way: Direkter Tausch ohne temporäre Hilfsvariable
                 array[j], array[j + 1] = array[j + 1], array[j]
                 swapped = True
+
+        # Early Exit: Kein Tausch im gesamten Durchlauf bedeutet, das Array ist sortiert
         if not swapped:
-            break  # keine Vertauschungen in diesem Durchlauf — bereits sortiert, vorzeitig abbrechen
+            break
+
     return array
 
 

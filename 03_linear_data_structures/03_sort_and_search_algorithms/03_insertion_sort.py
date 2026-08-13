@@ -25,13 +25,24 @@ print("original:", unsorted_array)
 
 
 def insertion_sort(array):
+    """Sortiert ein Array in-place aufsteigend mit Insertion Sort."""
+
+    # Wir starten bei 1, da ein einzelnes Element (Index 0) bereits für sich sortiert ist
     for i in range(1, len(array)):
+        # Zwischenspeichern, da der Platz beim Verschieben überschrieben wird
         current = array[i]
         j = i - 1
+
+        # Gehe im sortierten linken Teil rückwärts und verschiebe alle Elemente nach rechts,
+        # die größer als 'current' sind. (j >= 0 verhindert Out-of-Bounds)
         while j >= 0 and array[j] > current:
-            array[j + 1] = array[j]
+            array[j + 1] = array[j]  # Element um eine Position nach rechts rücken
             j -= 1
+
+        # Füge 'current' in die nun freigewordene, korrekte Position ein
+        # (j + 1, da die Schleife j am Ende noch einmal verringert hat)
         array[j + 1] = current
+
     return array
 
 
